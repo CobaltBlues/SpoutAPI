@@ -29,9 +29,8 @@ package org.spout.api.entity;
 import java.net.InetAddress;
 
 import org.spout.api.command.CommandSource;
+import org.spout.api.component.impl.PlayerPhysicsComponent;
 import org.spout.api.entity.state.PlayerInputState;
-import org.spout.api.geo.discrete.Point;
-import org.spout.api.geo.discrete.Transform;
 import org.spout.api.protocol.NetworkSynchronizer;
 import org.spout.api.protocol.Session;
 import org.spout.api.util.thread.Threadsafe;
@@ -118,20 +117,6 @@ public interface Player extends CommandSource, Entity {
 	 * @return current input state
 	 */
 	public PlayerInputState input();
-	
-	/**
-	 * Teleports the player to the given location and inform's the player's client
-	 * 
-	 * @param loc the new location
-	 */
-	public void teleport(Point loc);
-	
-	/**
-	 * Teleports the player to the given position and direction and inform's the player's client
-	 * 
-	 * @param loc the new location
-	 */
-	public void teleport(Transform transform);
 
 	/**
 	 * Immediately saves the players state to disk
@@ -140,4 +125,13 @@ public interface Player extends CommandSource, Entity {
 	public boolean save();
 
 	public void processInput(PlayerInputState state);
+
+	/**
+	 * Grabs the physics component attached to the player.
+	 *
+	 * Due to how players must be handled, all players have physics and movement should be commenced through
+	 * this component.
+	 * @return
+	 */
+	public PlayerPhysicsComponent getPhysics();
 }

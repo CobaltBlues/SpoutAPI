@@ -29,9 +29,17 @@ package org.spout.api.component.impl;
 import com.bulletphysics.collision.shapes.CollisionShape;
 
 import org.spout.api.component.type.EntityComponent;
+import org.spout.api.entity.Player;
 import org.spout.api.math.Vector3;
 
 public abstract class PhysicsComponent extends EntityComponent {
+	@Override
+	public void onAttached() {
+		if (getOwner() instanceof Player) {
+			throw new IllegalStateException("Players should have the PlayerPhysicsComponent instead.");
+		}
+	}
+
 	/**
 	 * Gets the restitution of the entity.
 	 * <p>
