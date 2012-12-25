@@ -15,13 +15,6 @@ import org.spout.api.geo.discrete.Transform;
  *   and have physics applied
  */
 public abstract class PlayerPhysicsComponent extends EntityComponent {
-	@Override
-	public void onAttached() {
-		if (!(getOwner() instanceof Player)) {
-			throw new IllegalStateException("Cannot attach Player physics to a non player!");
-		}
-	}
-
 	/**
 	 * Gets the restitution of the entity.
 	 * <p>
