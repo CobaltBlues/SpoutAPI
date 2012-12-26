@@ -34,6 +34,10 @@ import javax.vecmath.Vector3f;
 
 import javolution.context.StackContext;
 
+import org.spout.api.geo.World;
+import org.spout.api.geo.discrete.Point;
+import org.spout.api.geo.discrete.Transform;
+
 /**
  * Class containing various mathematical functions
  */

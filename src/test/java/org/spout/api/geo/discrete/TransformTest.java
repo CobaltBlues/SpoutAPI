@@ -26,11 +26,16 @@
  */
 package org.spout.api.geo.discrete;
 
+import javax.vecmath.Matrix4f;
+import javax.vecmath.Quat4f;
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.powermock.api.mockito.PowerMockito;
 import org.spout.api.geo.World;
+import org.spout.api.math.MathHelper;
 import org.spout.api.math.Quaternion;
 import org.spout.api.math.Vector3;
 
@@ -77,5 +82,4 @@ public class TransformTest {
 		assertEquals("Copy of transform failed reverse-equals test", copy, transform);
 		assertEquals("Copy of transform hashcodes do not match", transform.hashCode(), copy.hashCode());
 	}
-
 }
